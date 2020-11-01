@@ -2,6 +2,6 @@
 
 int main(int ac, char **av)
 {
-  std::cout << "ClockWorks" << std::endl;
+  std::cout << "ClockWorks Engine" << std::endl;
   return 0;
 }
