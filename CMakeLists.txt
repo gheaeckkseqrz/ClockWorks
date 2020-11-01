@@ -6,3 +6,5 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 
 add_executable(ClockWorks main.cpp)
+
+enable_testing()
