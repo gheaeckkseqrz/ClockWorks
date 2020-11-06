@@ -9,7 +9,9 @@ repos:
     -   id: check-yaml
     -   id: check-added-large-files
 
--   repo: git://github.com/doublify/pre-commit-clang-format
+-   repo: https://github.com/gheaeckkseqrz/pre-commit-hooks
     rev: master
     hooks:
     -   id: clang-format
+    -   id: clang-tidy
+        args: [-p, build, --warnings-as-errors=*]
