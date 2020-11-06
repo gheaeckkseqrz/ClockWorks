@@ -5,6 +5,8 @@ if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
 endif()
 
-add_executable(ClockWorks main.cpp)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+include_directories(include)
+add_executable(ClockWorks main.cpp)
 enable_testing()
