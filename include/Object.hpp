@@ -8,7 +8,11 @@ template <typename T = PRECISION>
 class Object
 {
 public:
-  Object() = default;
+  Object(Vec2<T> const &position = Vec2<T>(), Vec2<T> const &velocity = Vec2<T>())
+    : _position(position)
+    , _velocity(velocity)
+  {
+  }
 
 private:
   Vec2<T> _position;
