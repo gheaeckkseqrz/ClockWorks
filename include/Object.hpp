@@ -5,18 +5,40 @@
 #include "precision.hpp"
 
 template <typename T = PRECISION>
-class Object
+class TObject
 {
 public:
-  Object(Vec2<T> const &position = Vec2<T>(), Vec2<T> const &velocity = Vec2<T>())
+  TObject(TVec2<T> const &position = TVec2<T>(), TVec2<T> const &velocity = TVec2<T>())
     : _position(position)
     , _velocity(velocity)
   {
   }
 
+  void move(TVec2<T> const &d)
+  {
+    _position += d;
+  }
+
+  TVec2<T> const &getPosition() const
+  {
+    return _position;
+  }
+
+  void setPosition(TVec2<T> const &p) const
+  {
+    _position = p;
+  }
+
+  TVec2<T> const &getVelocity() const
+  {
+    return _velocity;
+  }
+
 private:
-  Vec2<T> _position;
-  Vec2<T> _velocity;
+  TVec2<T> _position;
+  TVec2<T> _velocity;
 };
+
+using Object = TObject<>;
 
 #endif /* OBJECT_HPP */
