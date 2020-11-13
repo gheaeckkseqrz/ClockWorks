@@ -1,6 +1,8 @@
 #ifndef VEC_HPP
 #define VEC_HPP
 
+#include <cmath>
+
 #include "precision.hpp"
 
 template <typename T = PRECISION>
@@ -10,6 +12,26 @@ struct TVec2
     : _x(x)
     , _y(y)
   {
+  }
+
+  T normSquared() const
+  {
+    return (_x * _x) + (_y * _y);
+  }
+
+  T norm() const
+  {
+    return sqrt(normSquared());
+  }
+
+  void normalise()
+  {
+    T n = norm();
+    if (n)
+    {
+      _x /= n;
+      _y /= n;
+    }
   }
 
   TVec2 &operator+=(TVec2 const &o)
@@ -30,6 +52,12 @@ public:
   T _x = 0;
   T _y = 0;
 };
+
+template <typename T = PRECISION>
+inline TVec2<T> operator-(TVec2<T> const &a, TVec2<T> const &b)
+{
+  return TVec2<T>(a._x - b._x, a._y - b._y);
+}
 
 template <typename T = PRECISION>
 inline TVec2<T> operator*(TVec2<T> const &a, T s)
