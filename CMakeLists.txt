@@ -10,5 +10,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 include_directories(include)
 add_executable(ClockWorks main.cpp)
+add_subdirectory(GUI)
+
 enable_testing()
 add_subdirectory(tests)
