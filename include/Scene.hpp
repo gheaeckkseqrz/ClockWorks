@@ -26,6 +26,11 @@ public:
     }
   }
 
+  std::vector<std::shared_ptr<TObject<T>>> const &getObjects() const
+  {
+    return _objects;
+  }
+
 private:
   std::vector<std::shared_ptr<TObject<T>>> _objects;
 };

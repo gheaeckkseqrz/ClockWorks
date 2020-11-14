@@ -29,7 +29,7 @@ public:
     _colors.push_back({127, 127, 127});
   }
 
-  ~GUI()
+  virtual ~GUI()
   {
     _thread.join();
   }
@@ -55,6 +55,11 @@ public:
     std::scoped_lock lock(_pointActiveM);
     _pointsActive.swap(_pointsNext);
     _pointsNext.clear();
+  }
+
+  bool alive() const
+  {
+    return _alive;
   }
 
 private:
@@ -101,6 +106,7 @@ private:
       }
       _window.display();
     }
+    std::cout << "Quitting" << std::endl;
   }
 
 private:
@@ -109,6 +115,6 @@ private:
   std::mutex _pointActiveM;
   sf::RenderWindow _window;
   std::thread _thread;
-  bool _alive;
   std::vector<sf::Color> _colors;
+  volatile bool _alive;
 };

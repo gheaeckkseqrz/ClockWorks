@@ -34,6 +34,11 @@ struct TVec2
     }
   }
 
+  bool operator==(TVec2 const &o) const
+  {
+    return _x == o._x && _y == o._y;
+  }
+
   TVec2 &operator+=(TVec2 const &o)
   {
     _x += o._x;
